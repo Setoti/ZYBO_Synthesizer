@@ -21,7 +21,7 @@ module sin_gen(
     always_ff @(posedge clk96M) begin
         if(reset)
             cnt2000 <= 11'd0;
-        else if(cnt2000 == 11'd1999)
+        else if(cnt2000_flag)
             cnt2000 <= 11'd0;
         else
             cnt2000 <= cnt2000 + 11'd1;
