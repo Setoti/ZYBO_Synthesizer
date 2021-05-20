@@ -1,26 +1,6 @@
 `timescale 1ps / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 2021/03/23 19:32:34
-// Design Name: 
-// Module Name: sim_sim_gen
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
-
-module sim_sim_gen;
+module sin_gen_test;
 
 localparam [63:0] STEP = 10416;
 localparam [63:0] CLKNUM = 960000*4;
