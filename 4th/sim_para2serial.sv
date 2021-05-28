@@ -13,7 +13,7 @@ logic pbdat;
 logic pblrc;
 
 logic [1:0] cnt4;
-logic [7:0] cnt250;
+logic [8:0] cnt500;
 
 design_1_wrapper design_1_wrapper(
     .bclk(bclk),
@@ -30,7 +30,7 @@ always begin
     clk96M = 1; #(STEP/2);
 end     
 
-// cnt8
+// cnt4
 always_ff @(posedge clk96M) begin
     if(reset)
         cnt4 <= 2'd0;
@@ -38,22 +38,22 @@ always_ff @(posedge clk96M) begin
         cnt4 <= cnt4 + 2'd1;
 end
 
-// cnt250
+// cnt500
 always_ff @(posedge clk96M) begin
     if(reset)
-        cnt250 <= 8'd0;
+        cnt500 <= 9'd0;
     else if(cnt4==2'd2)
-        if(cnt250==8'd249)
-            cnt250 <= 8'd0;
+        if(cnt500==9'd499)
+            cnt500 <= 9'd0;
         else
-            cnt250 <= cnt250 + 8'd1;
+            cnt500 <= cnt500 + 9'd1;
 end
 
 // pblrc
 always_ff @(posedge clk96M) begin
     if(reset)
         pblrc <= 1'b0; 
-    else if(cnt250==8'd249 | cnt250==8'd248)
+    else if(cnt500==9'd499 | cnt500==9'd498)
         pblrc <= 1'b1;
     else
         pblrc <= 1'b0;
@@ -64,7 +64,7 @@ always_ff @(posedge clk96M) begin
     if(reset)
         bclk <= 1'b0;
     else if(cnt4==2'd3)
-        bclk <= bclk + 1'b1;
+        bclk <= ~bclk;
 end
 
 initial begin

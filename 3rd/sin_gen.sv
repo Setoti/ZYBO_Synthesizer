@@ -27,7 +27,7 @@ module sin_gen(
             cnt2000 <= cnt2000 + 11'd1;
     end
     
-    // cnt2000_flga
+    // cnt2000_flag
     assign cnt2000_flag = (cnt2000 == 11'd1999);
     
     // freq_ff
@@ -72,7 +72,7 @@ module sin_gen(
         if(reset)
             p_ff <= 11'd0;
         else
-            p_ff <= p[30:19];
+            p_ff <= p[29:19];
     end
     
     // BRAM
