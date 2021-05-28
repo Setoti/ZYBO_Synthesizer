@@ -1,6 +1,6 @@
 `timescale 1ps / 1ps
 
-module sin_gen_test;
+module sim_sin_gen;
 
 localparam [63:0] STEP = 10416;
 localparam [63:0] CLKNUM = 960000*4;
